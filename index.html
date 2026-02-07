@@ -12,7 +12,7 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-      overflow: hidden;
+      overflow: hidden; /* allows hearts to float outside the viewport */
     }
 
     .card {
@@ -22,28 +22,66 @@
       text-align: center;
       border-radius: 20px;
       box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-      z-index: 1;
       position: relative;
+      z-index: 1; /* ensures card is above hearts */
     }
 
-    h1 { font-size: 24px; margin-bottom: 12px; }
-    p { font-size: 15px; color: #555; margin-bottom: 18px; line-height: 1.5; }
-    .clue { font-size: 13px; color: #999; margin-bottom: 20px; font-style: italic; }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .clue {
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
 
     input {
-      width: 100%; padding: 12px; font-size: 16px;
-      border-radius: 10px; border: 1px solid #ddd; outline: none;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      outline: none;
     }
 
     button {
-      width: 100%; padding: 12px; margin-top: 15px;
-      background: #e63946; color: white; border: none;
-      border-radius: 10px; font-size: 16px; cursor: pointer;
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background: #e63946;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
     }
-    button:hover { background: #d62839; }
 
-    .error { color: #e63946; margin-top: 12px; display: none; font-size: 14px; }
-    .footer { margin-top: 25px; font-size: 12px; color: #999; }
+    button:hover {
+      background: #d62839;
+    }
+
+    .error {
+      color: #e63946;
+      margin-top: 12px;
+      display: none;
+      font-size: 14px;
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 12px;
+      color: #999;
+    }
 
     /* Floating hearts */
     .heart {
@@ -69,13 +107,27 @@
       border-radius: 50%;
     }
 
-    .heart::before { top: -10px; left: 0; }
-    .heart::after { left: 10px; top: 0; }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 10px;
+      top: 0;
+    }
 
     @keyframes floatUp {
-      0% { transform: translateX(0) rotate(45deg) scale(1); opacity: 1; }
-      100% { transform: translateX(var(--x,0px)) translateY(-800px) rotate(45deg) scale(0.5); opacity: 0; }
+      0% {
+        transform: translateX(0) rotate(45deg) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(var(--x, 0px)) translateY(-800px) rotate(45deg) scale(0.5);
+        opacity: 0;
+      }
     }
+
   </style>
 </head>
 <body>
@@ -89,7 +141,9 @@
       something I made straight from my heart.
     </p>
 
-    <div class="clue">Clue: the day you said yes</div>
+    <div class="clue">
+      Clue: the day you said yes
+    </div>
 
     <input type="password" id="password" placeholder="MMDDYY">
     <button onclick="checkPassword()">Enter</button>
@@ -98,7 +152,9 @@
       That’s not it… but I still love you 🫶
     </div>
 
-    <div class="footer">Happy Valentine’s Day 💌</div>
+    <div class="footer">
+      Happy Valentine’s Day 💌
+    </div>
   </div>
 
   <script>
@@ -107,7 +163,6 @@
       const correctPassword = "090325";
 
       if (password === correctPassword) {
-        // Redirect directly to Google Sites
         window.location.href = "https://sites.google.com/view/formyprettybaby/home";
       } else {
         document.getElementById("error").style.display = "block";
