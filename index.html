@@ -43,11 +43,6 @@
     button:hover { background: #d62839; }
 
     .error { color: #e63946; margin-top: 12px; display: none; font-size: 14px; }
-    .site-link {
-      margin-top: 20px; font-size: 17px; color: #3a6ea5;
-      word-break: break-all;
-    }
-
     .footer { margin-top: 25px; font-size: 12px; color: #999; }
 
     /* Floating hearts */
@@ -74,25 +69,12 @@
       border-radius: 50%;
     }
 
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: 10px;
-      top: 0;
-    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: 10px; top: 0; }
 
     @keyframes floatUp {
-      0% {
-        transform: translateX(0) rotate(45deg) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translateX(var(--x, 0px)) translateY(-800px) rotate(45deg) scale(0.5);
-        opacity: 0;
-      }
+      0% { transform: translateX(0) rotate(45deg) scale(1); opacity: 1; }
+      100% { transform: translateX(var(--x,0px)) translateY(-800px) rotate(45deg) scale(0.5); opacity: 0; }
     }
   </style>
 </head>
@@ -116,13 +98,6 @@
       That’s not it… but I still love you 🫶
     </div>
 
-    <div class="site-link" id="link" style="display: none;">
-      💌 Your site link: <br>
-      <a href="https://sites.google.com/view/formyprettybaby/home" target="_blank">
-        https://sites.google.com/view/formyprettybaby/home
-      </a>
-    </div>
-
     <div class="footer">Happy Valentine’s Day 💌</div>
   </div>
 
@@ -132,8 +107,8 @@
       const correctPassword = "090325";
 
       if (password === correctPassword) {
-        document.getElementById("error").style.display = "none";
-        document.getElementById("link").style.display = "block";
+        // Redirect directly to Google Sites
+        window.location.href = "https://sites.google.com/view/formyprettybaby/home";
       } else {
         document.getElementById("error").style.display = "block";
       }
